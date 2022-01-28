@@ -1,18 +1,18 @@
-# class Item(): ###This is just a class to create the options that could be in the cart. A dictionary would be more efficient, but I wanted to practice objects.
-#     def __init__(self, name, cost, availability = True):
-#         self.name = name
-#         self.cost = cost
-#         self.availability = availability
+class Item(): ###This is just a class to create the options that could be in the cart. A dictionary would be more efficient, but I wanted to practice objects.
+    def __init__(self, name, cost, availability = True):
+        self.name = name
+        self.cost = cost
+        self.availability = availability
 
-# lion = Item('lion', 50, True) ###I manually made the items in the list this way. If I have more time, I might add functionality---
-# tiger = Item('tiger', 500, True) ###---to allow the user to request items to be added.
-# bear = Item('bear', 5000, True)
-# home = Item('Kansas', 50000, False)
-#######Everything above this line was how I originally tried to define the items, but it wasn't working.######
-lion = {'name': 'lion', 'cost': 50, 'availability': True}
-tiger = {'name': 'tiger', 'cost': 500, 'availability': True}
-bear = {'name': 'bear', 'cost': 5000, 'availability': True}
-home = {'name': 'home', 'cost': 50000, 'availability': False}
+lion = Item('lion', 50, True) ###I manually made the items in the list this way. If I have more time, I might add functionality---
+tiger = Item('tiger', 500, True) ###---to allow the user to request items to be added.
+bear = Item('bear', 5000, True)
+home = Item('Kansas', 50000, False)
+#######This section was how I once tried to define the items, but it wasn't working.#######
+# lion = {'name': 'lion', 'cost': 50, 'availability': True}
+# tiger = {'name': 'tiger', 'cost': 500, 'availability': True}
+# bear = {'name': 'bear', 'cost': 5000, 'availability': True}
+# home = {'name': 'home', 'cost': 50000, 'availability': False}
 
 discount_codes = {'dorothy': 100, 'toto': 75, 'scarecrow': 50, 'tinman': 25, 'wicked': -100} ###The user can put in discount codes later.
 
@@ -42,9 +42,9 @@ class Cart():
             item = bear
         elif item == 'home':
             item = home
-        self.items.append(item['name'])
-        self.cost_sum += item['cost']
-        if item['availability'] == True:
+        self.items.append(item.name)
+        self.cost_sum += item.cost
+        if item.availability == True:
             self.total_availability += 1
         else:
             input("\nThis item is currently unavailable, but will ship when it comes back in stock.")
@@ -61,9 +61,9 @@ class Cart():
         elif item == 'home':
             item = home
         if item['name'] in self.items:
-            self.items.remove(item['name'])
-            self.cost_sum -= item['cost']
-            if item['availability'] == True:
+            self.items.remove(item.name)
+            self.cost_sum -= item.cost
+            if item.availability == True:
                 self.total_availability -= 1
             input(f"\nOne {item['name']} has been removed from your cart.")
         else:
