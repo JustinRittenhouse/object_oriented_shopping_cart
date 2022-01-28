@@ -8,7 +8,7 @@ lion = Item('lion', 50, True) ###I manually made the items in the list this way.
 tiger = Item('tiger', 500, True) ###---to allow the user to request items to be added.
 bear = Item('bear', 5000, True)
 home = Item('Kansas', 50000, False)
-#######This section was how I once tried to define the items, but it wasn't working.#######
+#######This section was how I once tried to define the items, but I wanted to make classes work.#######
 # lion = {'name': 'lion', 'cost': 50, 'availability': True}
 # tiger = {'name': 'tiger', 'cost': 500, 'availability': True}
 # bear = {'name': 'bear', 'cost': 5000, 'availability': True}
