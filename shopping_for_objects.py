@@ -14,7 +14,7 @@ tiger = {'name': 'tiger', 'cost': 500, 'availability': True}
 bear = {'name': 'bear', 'cost': 5000, 'availability': True}
 home = {'name': 'home', 'cost': 50000, 'availability': False}
 
-discount_codes = {'dorothy': 100, 'toto': 75, 'scarecrow': 50, 'tinman': 25, 'wicked': -900} ###The user can put in discount codes later.
+discount_codes = {'dorothy': 100, 'toto': 75, 'scarecrow': 50, 'tinman': 25, 'wicked': -100} ###The user can put in discount codes later.
 
 class Cart():
     def __init__(self, items, cost_sum, total_availability, discount, code_in_use): ###The cart has these attributes.
@@ -36,11 +36,11 @@ class Cart():
         item = input("\nWould you like to add a lion, a tiger, a bear, or a home?" )
         if item == 'lion': ###This was my final workaround. I think it's SO dumb I have to do it this way.
             item = lion
-        if item == 'tiger':
+        elif item == 'tiger':
             item = tiger
-        if item == 'bear':
+        elif item == 'bear':
             item = bear
-        if item == 'home':
+        elif item == 'home':
             item = home
         self.items.append(item['name'])
         self.cost_sum += item['cost']
@@ -54,16 +54,16 @@ class Cart():
         item = input("\nWhat would you like to remove from your cart? ")
         if item == 'lion': ###This was my final workaround. I think it's SO dumb I have to do it this way.
             item = lion
-        if item == 'tiger':
+        elif item == 'tiger':
             item = tiger
-        if item == 'bear':
+        elif item == 'bear':
             item = bear
-        if item == 'home':
+        elif item == 'home':
             item = home
         if item['name'] in self.items:
             self.items.remove(item['name'])
             self.cost_sum -= item['cost']
-            if item.availability == True:
+            if item['availability'] == True:
                 self.total_availability -= 1
             input(f"\nOne {item['name']} has been removed from your cart.")
         else:
@@ -101,10 +101,10 @@ class Cart():
         if self.discount == 0:
             print('$' + str(self.cost_sum))
         else:
-            old_price = '$'
+            old_price = ''
             for i in str(self.cost_sum):
                 old_price = old_price + i + '\u0336' ###I found this sucker on stack overflow.
-            print(old_price + ' $' + str(self.cost_sum - self.cost_sum / 100 * self.discount))
+            print('$' + old_price + '  $' + str(self.cost_sum - self.cost_sum / 100 * self.discount))
         print('=' * 50 + "\nNumber of packages that can immediately ship: " + str(self.total_availability) + " out of " + str(len(self.items)))
         input('=' * 50)
 
