@@ -25,7 +25,7 @@ class Cart():
         self.code_in_use = code_in_use
 
     # def define_Cart(self): ###I wasn't sure how to make items a list, cost_sum an integer, etc., so I defined it here.
-    #     self.items = []    ###Upon further thought, I could have set the parameters of __init__ equal to these. Next time...
+    #     self.items = []    ###Upon further thought, I could have set the parameters of __init__ equal to these. I adjusted that.
     #     self.cost_sum = 0
     #     self.total_availability = 0
     #     self.discount = 0
